@@ -6,11 +6,11 @@ library(phyloseq)
 library(vegan)
 
 ##Set working directory --> Command setwd() tells R where to find the data file
-setwd("C:/Users/allyw/Desktop/UBC_Master_Zoology/Courses_2025/Winter_Term_2025/BIOL503_MicrobialEcology/BIOL503_Lab/BIOL503_Lab5")
+setwd("C:/Users/allyw/Desktop/UBC_Master_Zoology/Courses_2025/Winter_Term_2025/BIOL503_MicrobialEcology/BIOL503_Lab/BIOL503_Lab5/")
 getwd ()
 
 # RDS files can only be opened in R --> readRDS is the function to do this
-nonrare = readRDS("~/miranda/Biol503/raw_data/Wang_seagrass_unfiltered_phyloseq.RDS")
+nonrare = readRDS("Wang_seagrass_unfiltered_phyloseq (1).RDS")
 
 
 ###INVESTIGATE PHYOSEQ OBJECT
@@ -137,17 +137,18 @@ cleanseagrass
 ## add the number of reads after filtering
 cleanseagrass@sam_data$sample_sums_filtered = sample_sums(cleanseagrass)
 
-## save rarefied dataframe
-write_rds(cleanseagrass, "filtered_seagrass_default_phyloseq.RDS")
-
 library(tidyr)
 #this is seperating and cleaning our metadata, which had all this imforamtion together
 meta <- separate(as.data.frame(as.matrix(cleanseagrass@sam_data)), col=Library.Name, 
                  into=c("ID", "treat", "samp_time", "samp_type","remove"), sep="_")
 
-ps = phyloseq(sample_data(meta),
+cleanseagrass = phyloseq(sample_data(meta),
               tax_table(cleanseagrass@tax_table),
               otu_table(cleanseagrass@otu_table, taxa_are_rows = F))
+
+## save rarefied dataframe
+write_rds(cleanseagrass, "filtered_seagrass_default_phyloseq.RDS")
+
 
 ###RAREFACTION
 ## use the rarecurve function in the package vegan to plot the rarefaction
@@ -170,6 +171,7 @@ set.seed(5)
 ## rarefy every sample to a set number of reads here we chose 5686 because the rarification curves level off just before that meaning we capture most of the species at that sampple size
 raresg <- rarefy_even_depth(cleanseagrass, sample.size = 5686)
 
+view(raresg@sam_data)
 
 ## calculate the rarefied sample sums
 raresg@sam_data$rare_sample_sums = sample_sums(raresg)
@@ -180,7 +182,7 @@ summary(raresg@sam_data$rare_sample_sums)
 # 2341    2341    2341    2341    2341    2341 
 
 ## save rarefied dataframe
-write_rds(raresg, "rarefied_seagrass_default_phyloseq.RDS")
+write_rds(raresg, "rarefied_seagrass_default_phyloseq_2025_03_10.RDS")
 
 
 
