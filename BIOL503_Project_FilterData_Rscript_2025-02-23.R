@@ -167,8 +167,8 @@ View(cleanseagrass@sam_data)
 ## set seed to tell R which set of random numbers to use.
 # This is important because it will allow you to sample randomly the same way every time
 set.seed(5)
-## rarefy every sample to a set number of reads here we chose 2341 because the rarification curves level off just before that meaning we capture most of the species at that sampple size
-raresg <- rarefy_even_depth(cleanseagrass, sample.size = 2341)
+## rarefy every sample to a set number of reads here we chose 5686 because the rarification curves level off just before that meaning we capture most of the species at that sampple size
+raresg <- rarefy_even_depth(cleanseagrass, sample.size = 5686)
 
 
 ## calculate the rarefied sample sums
