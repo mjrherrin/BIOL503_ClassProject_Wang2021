@@ -9,7 +9,6 @@ library(gridExtra)
 library(dplyr)
 library(ggplot2)
 
-citation()
 
 ## set working directory
 setwd("C:/Users/allyw/Desktop/UBC_Master_Zoology/Courses_2025/Winter_Term_2025/BIOL503_MicrobialEcology/BIOL503_Project/")
