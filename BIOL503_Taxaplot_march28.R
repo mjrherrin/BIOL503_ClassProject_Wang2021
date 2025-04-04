@@ -167,7 +167,7 @@ for(i in grouplistsod) {
   }
 }
 
-## start loop for sod
+## start loop for wash
 for(i in grouplistwash) {
   for(j in i) {
     
