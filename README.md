@@ -1,6 +1,7 @@
 # BIOL503_ClassProject_Wang2021
 
-Will update this later
+Exploring the Functional Recovery of the Zostera marina Rhizobiome Post-Transplantation
+Alexandra Wiebe, MJ Herrin, Miranda MacGillivray 
+BIOL 503 Microbial Ecology Final Project GitHub
 
-Google Project folder:
-https://drive.google.com/drive/folders/1fvwIEg3jN6zOndmOd2c5i4t-AbNXrV_u?usp=drive_link
+Please run files in numbered order
