@@ -149,7 +149,7 @@ ps = phyloseq(sample_data(meta),
               otu_table(cleanseagrass@otu_table, taxa_are_rows = F))
 
 #Save the clean filtered with meta data file as an RDS
-write_rds(ps, "filtered_seagrass_wMeta_phyloseq.RDS")
+write_rds(ps, "OUTPUT_filtered_seagrass_wMeta_phyloseq.RDS")
 
 ###RAREFACTION
 ## use the rarecurve function in the package vegan to plot the rarefaction
@@ -182,7 +182,7 @@ summary(raresg@sam_data$rare_sample_sums)
 # 2341    2341    2341    2341    2341    2341 
 
 ## save rarefied dataframe
-write_rds(raresg, "rarefied_seagrass_default_phyloseq.RDS")
+write_rds(raresg, "OUTPUT_rarefied_seagrass_default_phyloseq_2025_03_10.RDS")
 
 
 
