@@ -164,13 +164,13 @@ rarecurve(
 
 
 ## open the cleanseagrass metadata
-View(cleanseagrass@sam_data)
+View(ps@sam_data)
 
 ## set seed to tell R which set of random numbers to use.
 # This is important because it will allow you to sample randomly the same way every time
 set.seed(5)
 ## rarefy every sample to a set number of reads here
-raresg <- rarefy_even_depth(cleanseagrass, sample.size = 2341)
+raresg <- rarefy_even_depth(ps, sample.size = 2341)
 
 
 ## calculate the rarefied sample sums
