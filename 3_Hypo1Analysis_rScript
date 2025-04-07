@@ -14,7 +14,7 @@ library(ggplot2)
 setwd("C:/Users/allyw/Desktop/UBC_Master_Zoology/Courses_2025/Winter_Term_2025/BIOL503_MicrobialEcology/BIOL503_Project/")
 
 ## Read in data
-seagrassrare<-readRDS("rarefied_seagrass_default_phyloseq_2025_03_10.RDS")
+seagrassrare<-readRDS("OUTPUT_rarefied_seagrass_default_phyloseq_2025_03_10.RDS")
 
 ###Hypothesis: Recovery of the rhizosphere post-transplantation will be different between sod & wash treatments due to different magnitudes of disturbances in microbial community composition during transplanting.
 
