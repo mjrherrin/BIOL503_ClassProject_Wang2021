@@ -11,7 +11,7 @@ setwd("C:/Users/allyw/Desktop/UBC_Master_Zoology/Courses_2025/Winter_Term_2025/B
 getwd ()
 
 # RDS files can only be opened in R --> readRDS is the function to do this
-nonrare = readRDS("1_Wang_seagrass_unfiltered_phyloseq.RDS")
+nonrare = readRDS("Wang_seagrass_unfiltered_phyloseq.RDS")
 
 
 ###INVESTIGATE PHYOSEQ OBJECT
@@ -46,9 +46,9 @@ nonrare@sam_data$sample_sums_unfiltered = as.numeric(sample_sums(nonrare))
 
 ##Invertigate min and max reads per sample
 min(nonrare@sam_data$sample_sums_unfiltered)
-#Output:754
+#Output:5
 max(nonrare@sam_data$sample_sums_unfiltered)
-#Output:72759
+#Output:11932
 
 ## remove the samples by your threshold (equal or greater to 6000)
 nonrare.high <- prune_samples(sample_sums(nonrare) >= 6000, nonrare)
@@ -87,8 +87,8 @@ min(otu.pruned$asv_abundance)
 ## remove asv_abundance column from your OTU table since we don't want to analyse it
 # our asv_abundance column gets tacked onto the end when you make it, so you just need to delete the last ## how many columns in dataframe?
 widthotu = ncol(otu.pruned)
-#Output: 83 columns in otu.prume
-#Output after removing last column: 82 columns in otu.prume
+#Output: 106 columns in otu.prume
+#Output after removing last column: 105 columns in otu.prume
 
 ## see how widthotu appears as a Value in the environement?
 ## keep everything in the otu.pruned dataset except the last columns
@@ -106,7 +106,7 @@ otu.pruned$asv_occur_count = apply(otu.pruned, 1, ASVoccur)
 summary(otu.pruned$asv_occur_count)
 # #Output:
 # Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
-# 2.00    6.00    9.00   13.66   17.00   79.00 
+# 1.00    8.00    14.00   22.53   28.00   105.00 
 
 ## lets remove ASVs found two or less times in the dataset
 otu.highfreq = subset(otu.pruned, otu.pruned$asv_occur_count>2)
@@ -115,7 +115,7 @@ otu.highfreq = subset(otu.pruned, otu.pruned$asv_occur_count>2)
 summary(otu.highfreq$asv_occur_count)
 # #Output: 
 # Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
-# 3.00    6.00   10.00   14.29   17.00   79.00
+# 3.00    8.00   15.00   23.28   29.00   105.00
 
 ## remove the asv_occur_count column
 otu.highfreq = otu.highfreq[,-c(widthotu)]
