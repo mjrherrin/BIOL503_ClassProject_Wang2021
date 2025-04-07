@@ -11,7 +11,7 @@ setwd("C:/Users/allyw/Desktop/UBC_Master_Zoology/Courses_2025/Winter_Term_2025/B
 getwd ()
 
 # RDS files can only be opened in R --> readRDS is the function to do this
-nonrare = readRDS("Wang_seagrass_unfiltered_phyloseq (1).RDS")
+nonrare = readRDS("1_Wang_seagrass_unfiltered_phyloseq.RDS")
 
 
 ###INVESTIGATE PHYOSEQ OBJECT
