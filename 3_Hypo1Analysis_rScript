@@ -25,6 +25,7 @@ set.seed(4)
 days <- c("d0", "d1", "d3", "d7", "d14", "d21", "d28")
 
 #create a list where plots, the stress values, and the permanova outputs from the for-loop can be saved
+  #Following loop was used to generate Figure 2 please disregard the stats as a nested PERMANOVA (see below) is better for what we are trying to analyse
 plots<- list()
 stress.day<- vector()
 perm.assum<-list()
@@ -121,8 +122,7 @@ print(p_value)
 adjusted_p_values <- p.adjust(p_value, method = "BH")
 
 
-
-###Nested PERMANOVA 
+###Nested PERMANOVA --> the following stats were used for the poster
 # Calculate the Bray-Curtis distances
 overall.distanceinfo <- phyloseq::distance(seagrassrare, method = "bray")
 
@@ -153,6 +153,7 @@ metacols = ncol(meta)+1
 perm= adonis2(mo[,-c(1:metacols)] ~ samp_time/treat,
               data=mo, method = "bray")
 perm
+    #For Figure 1
 
 # Run pairwise PERMANOVA with nested factors (post-hoc test)
 pairwise_results <- pairwise.adonis(
@@ -161,6 +162,7 @@ pairwise_results <- pairwise.adonis(
   sim.method = "bray",                   # Bray-Curtis dissimilarity
   p.adjust.m = "BH"                      # Benjamini-Hochberg correction for p-values
 )
+  #For Figure 1 and 2
 
 # Print pairwise PERMANOVA results
 print(pairwise_results)
@@ -169,7 +171,7 @@ print(pairwise_results)
 write.csv(pairwise_results, file ="BIOL503_pairwisePERMANOVA_results.csv", row.names = TRUE)
 
 
-####Overall NMDS
+####Overall NMDS (Figure 1)
 
 # Ordinate your data to make the NMDS plot
 overall.seagrass.ord <- ordinate(seagrassrare, "NMDS", "bray")
