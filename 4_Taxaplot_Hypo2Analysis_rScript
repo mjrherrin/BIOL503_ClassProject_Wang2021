@@ -34,7 +34,7 @@ library(ggplot2)+theme_set(theme_bw()+
                                    panel.grid.minor = element_blank()
                              ))
 #read in data
-seagrassdataset<-readRDS("~/UBC/biol503/filtered_seagrass_wMeta_phyloseq.RDS")
+seagrassdataset<-readRDS("OUTPUT_filtered_seagrass_wMeta_phyloseq.RDS")
 
 ## load functions
 dephyloseq = function(phylo_obj){
